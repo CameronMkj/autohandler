@@ -11,8 +11,11 @@ os.system("clear")
 port = raw_input("What is your LPORT? ")
 os.system("clear")
 exploit = raw_input("Do you want to run the exploit immediately? (Y/N) ")
+os.system("clear")
 exploitTwo = exploit.lower()
 
+os.system("gnome-terminal")
+time.sleep(1)
 keyboard.type("msfconsole")
 keyboard.press(Key.enter)
 keyboard.release(Key.enter)
@@ -40,7 +43,8 @@ else:
 
 print("")
 print("")
-raw_input("Press any key to continue...")
+raw_input("Press any key to continue...\n")
+os.system("exit")
 
 
 # os.system("msfconsole")
