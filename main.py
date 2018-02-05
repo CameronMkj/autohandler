@@ -4,7 +4,50 @@ from pynput.keyboard import Key, Controller
 keyboard = Controller()
 
 os.system("clear")
-payload = raw_input("What payload are you going to be using? ")
+print("Please choose an option: ")
+print("1. Manually type payload name. ")
+print("2. Choose from a list.")
+choiceOne = raw_input("")
+os.system("clear")
+
+if choiceOne == "1":
+	payload = raw_input("What payload are you going to be using? ")
+elif choiceOne == "2":
+	print("Please choose an option: ")
+	print("1. linux/x86/meterpreter/reverse_tcp")
+	print("2. windows/meterpreter/reverse_tcp")
+	print("3. osx/x86/shell_reverse_tcp")
+	print("4. cmd/unix/reverse_python")
+	print("5. cmd/unix/reverse_bash")
+	print("6. cmd/unix/reverse_perl")
+	print("7. Exit Program")
+	choiceTwo = raw_input("")
+	if choiceTwo == "1":
+		payload = "linux/x86/meterpreter/reverse_tcp"
+	elif choiceTwo == "2":
+		payload = "windows/meterpreter/reverse_tcp"
+	elif choiceTwo == "3":
+		payload = "osx/x86/shell_reverse_tcp"
+	elif choiceTwo == "4":
+		payload = "cmd/unix/reverse_python"
+	elif choiceTwo == "5":
+		payload = "cmd/unix/reverse_bash"
+	elif choiceTwo == "6":
+		payload = "cmd/unix/reverse_perl"
+	elif choiceTwo == "7":
+		raw_input("Press any button to continue...\n")
+		os.system("exit")
+	else:
+		print("That is not a valid option!")
+		raw_input("Press any button to continue...\n")
+		os.system("exit")
+
+else: 
+	print("That is not a valid option!")
+	raw_input("Press any button to continue...\n")
+	os.system("exit")
+
+
 os.system("clear")
 ip = raw_input("What is your LHOST? ")
 os.system("clear")
