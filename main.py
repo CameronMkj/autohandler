@@ -47,6 +47,26 @@ else:
 	raw_input("Press any button to continue...\n")
 	os.system("exit")
 
+os.system("clear")
+print("How fast is your PC? ")
+print("1. Very Fast.")
+print("2. Fast.")
+print("3. Decent.")
+print("4. Slow.")
+pcSpeed = raw_input("")
+if pcSpeed == 1:
+	sleeper = time.sleep(10)
+elif pcSpeed == 2:
+	sleep = time.sleep(15)
+elif pcSpeed == 3:
+	sleep = time.sleep(20)
+elif pcSpeed == 4:
+	sleep = time.sleep(25)
+else:
+	print("That is not a valid option!")
+	raw_input("Press any button to continue...\n")
+	os.system("exit")
+
 
 os.system("clear")
 ip = raw_input("What is your LHOST? ")
@@ -62,7 +82,7 @@ time.sleep(1)
 keyboard.type("msfconsole")
 keyboard.press(Key.enter)
 keyboard.release(Key.enter)
-time.sleep(10)
+sleeper
 keyboard.type("use exploit/multi/handler")
 keyboard.press(Key.enter)
 keyboard.release(Key.enter)
